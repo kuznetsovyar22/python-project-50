@@ -1,0 +1,17 @@
+name: gendiff
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # we want to test our package on several versions of Python
+        python-version: [3.8, 3.9]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run linter and pytest
+      - run: make lint
