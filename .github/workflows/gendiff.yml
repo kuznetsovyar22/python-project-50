@@ -1,17 +1,27 @@
 name: gendiff
 
-on:
-  - push
-  - pull_request
+on:  push
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        # we want to test our package on several versions of Python
-        python-version: [3.8, 3.9]
+        python-version: [3.8]
     steps:
-      uses: actions/checkout@v3
-      name: Run linter and pytest
+    - name: Pulls the repo
+      uses: actions/checkout@v2
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+      
+    - name: Set up Poetry for Python
+      uses: Gr1N/setup-poetry@v7
+
+    - name: Install project dependencies with poetry
+      run: poetry install
+
+    - name: Lint with flake8
       run: make lint
