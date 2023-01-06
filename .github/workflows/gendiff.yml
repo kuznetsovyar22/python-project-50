@@ -36,4 +36,4 @@ jobs:
         CC_TEST_REPORTER_ID: c7804d78d510ebc31139624eeead8121144b0194aeebde02323c37c2af898c49
       with:
         coverageCommand: make test-coverage
-        coverageLocations: ${{github.workspace}}/tests/jacocoTestReport.xml:jacoco
+        coverageLocations: ${{github.workspace}}/coverage.lcov:lcov

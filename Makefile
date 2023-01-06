@@ -14,4 +14,4 @@ test:
 	poetry run pytest tests/test_gendiff.py
 
 test-coverage:
-	poetry run pytest --cov
+	poetry run pytest --cov --cov-report lcov
