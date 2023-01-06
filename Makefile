@@ -12,3 +12,6 @@ lint:
 
 test:
 	poetry run pytest tests/test_gendiff.py
+
+test-coverage:
+	poetry run pytest --cov
