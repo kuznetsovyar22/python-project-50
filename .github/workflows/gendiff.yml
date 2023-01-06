@@ -25,3 +25,6 @@ jobs:
 
     - name: Lint with flake8
       run: make lint
+
+    - name: Tests
+      run: make test

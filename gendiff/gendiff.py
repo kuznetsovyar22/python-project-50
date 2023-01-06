@@ -11,5 +11,6 @@ def generate_diff(file1, file2):
         elif file1[i] != file2[i]:
             res += '- ' + str(i) + ': ' + str(file1[i]) + '\n'
             res += '+ ' + str(i) + ': ' + str(file2[i]) + '\n'
+    res = res[:-1]
     return res
 
