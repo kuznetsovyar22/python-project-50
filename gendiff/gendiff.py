@@ -13,4 +13,3 @@ def generate_diff(file1, file2):
             res += '+ ' + str(i) + ': ' + str(file2[i]) + '\n'
     res = res[:-1]
     return res
-

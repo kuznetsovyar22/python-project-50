@@ -2,6 +2,7 @@ import argparse
 import json
 from gendiff.gendiff import generate_diff
 
+
 def parse_args():
     parser = argparse.ArgumentParser(description='Compares two configuration files and shows a difference.')  # noqa: E501
     parser.add_argument('first_file', metavar='first_file')
