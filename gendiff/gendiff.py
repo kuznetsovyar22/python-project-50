@@ -36,7 +36,16 @@ def obrab(file1, file2, i, znak):
     if isinstance(file1[i], dict) and isinstance(file2[i], dict):
         znak.append({'key': i, 'znak': 'd '})
         izmen(file1[i], file2[i], znak)
-    elif file1[i] == file2[i]:
+    elif fix(file1[i]) == fix(file2[i]):
         znak.append({'key': i, 'znak': '  '})
-    elif file1[i] != file2[i]:
+    elif fix(file1[i]) != fix(file2[i]):
         znak.append({'key': i, 'znak': '? ', 'old': file1[i], 'new': file2[i]})  # noqa: E501
+
+
+def fix(file):
+    if isinstance(file, bool):
+        return str(file).lower()
+    elif file is None or file == 0:
+        return "null"
+    else:
+        return str(file)
