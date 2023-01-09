@@ -1,5 +1,6 @@
 from gendiff.formatters.stylish import formatter_stylish
 from gendiff.formatters.plain import formatter_plain
+from gendiff.formatters.json import formatter_json
 
 
 def generate_diff(file1, file2, format):
@@ -8,6 +9,8 @@ def generate_diff(file1, file2, format):
         print(formatter_stylish(file1, file2, znak))
     elif format == 'plain':
         print(formatter_plain(file1, file2, znak, []))
+    elif format == 'json':
+        print(formatter_json(znak))
 
 
 def izmen(file1, file2, znak):

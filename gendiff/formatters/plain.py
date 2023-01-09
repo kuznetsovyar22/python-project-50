@@ -8,7 +8,7 @@ def search(znak, item):
             return i['znak']
 
 
-def output(file1, file2, i, znak, depth):
+def output(file1, file2, i, znak):
     if search(znak, i) == '- ':
         return 'removed'
     elif search(znak, i) == '+ ':
@@ -35,6 +35,6 @@ def formatter_plain(file1, file2, znak, res):
             elif search(znak, i) == '  ':
                 continue
             else:
-                res.append(f'Property \'{path + str(i)}\' was {output(file1, file2, i, znak, path)}\n')  # noqa: E501
+                res.append(f'Property \'{path + str(i)}\' was {output(file1, file2, i, znak)}\n')  # noqa: E501
         return ''.join(res)[:-1]
     return walk(file1, file2, '', res)
