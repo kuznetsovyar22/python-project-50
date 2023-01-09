@@ -1,9 +1,12 @@
 from gendiff.formatters.stylish import formatter_stylish
 from gendiff.formatters.plain import formatter_plain
 from gendiff.formatters.json import formatter_json
+from gendiff.parse import parse_file
 
 
 def generate_diff(file1, file2, format='stylish'):
+    file1 = parse_file(file1)
+    file2 = parse_file(file2)
     znak = izmen(file1, file2, [])
     if format == 'stylish':
         print(formatter_stylish(file1, file2, znak))
