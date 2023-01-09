@@ -2,7 +2,7 @@ import itertools
 
 
 def kto(file, depth):
-    return str(stringerfy(file, spacesCount=depth + 2)) if isinstance(file, dict) else fix(file)  # noqa: E501
+    return str(stringify(file, spacesCount=depth + 2)) if isinstance(file, dict) else fix(file)  # noqa: E501
 
 
 def search(znak, item):
@@ -27,7 +27,7 @@ def fix(file):
         return str(file)
 
 
-def stringify(file1, file2, znak, replacer='  '):
+def formatter_stylish(file1, file2, znak, replacer='  '):
     def walk(file1, file2, depth):
         res = ''
         allkeys = sorted(list(file1.keys() | file2.keys()))
@@ -46,7 +46,7 @@ def stringify(file1, file2, znak, replacer='  '):
     return walk(file1, file2, 0)
 
 
-def stringerfy(tree, replacer='  ', spacesCount=1):
+def stringify(tree, replacer='  ', spacesCount=1):
     def walk(value, depth):
         res = ''
         tab = replacer * (spacesCount * depth)

@@ -1,7 +1,6 @@
 import argparse
-from gendiff.gendiff import izmen
 from gendiff.parse import parse_file
-from gendiff.format import stringify
+from gendiff.gendiff import generate_diff
 
 
 def parse_args():
@@ -16,9 +15,7 @@ def main():
     args = parse_args()
     file1 = parse_file(args.first_file)
     file2 = parse_file(args.second_file)
-    if args.format == 'stylish':
-        znak = izmen(file1, file2, [])
-        print(stringify(file1, file2, znak))
+    generate_diff(file1, file2, args.format)
 
 
 if __name__ == '__main__':
