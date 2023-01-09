@@ -12,8 +12,10 @@ def search(znak, item):
 
 
 def output(file1, file2, i, znak, depth):
-    if search(znak, i) == '- ' or search(znak, i) == '  ':
+    if search(znak, i) == '- ':
         return kto(file1[i], depth)
+    if search(znak, i) == '  ':
+        return kto(file2[i], depth)
     elif search(znak, i) == '+ ':
         return kto(file2[i], depth)
 
