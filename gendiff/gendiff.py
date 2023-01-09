@@ -9,11 +9,15 @@ def generate_diff(file1, file2, format='stylish'):
     file2 = parse_file(file2)
     znak = izmen(file1, file2, [])
     if format == 'stylish':
+        res = formatter_stylish(file1, file2, znak)
         print(formatter_stylish(file1, file2, znak))
     elif format == 'plain':
+        res = formatter_plain(file1, file2, znak, [])
         print(formatter_plain(file1, file2, znak, []))
     elif format == 'json':
+        res = formatter_json(znak)
         print(formatter_json(znak))
+    return res
 
 
 def izmen(file1, file2, znak):
