@@ -3,6 +3,7 @@
       "setting1": "Value 1",
       "setting2": 200,
       "setting3": true,
+      "setting7": 0,
       "setting6": {
         "key": "value",
         "doge": {

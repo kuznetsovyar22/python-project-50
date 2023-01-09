@@ -23,7 +23,7 @@ def output(file1, file2, i, znak, depth):
 def fix(file):
     if isinstance(file, bool):
         return str(file).lower()
-    elif file is None or file == 0:
+    elif not file:
         return "null"
     else:
         return str(file)

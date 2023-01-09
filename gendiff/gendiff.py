@@ -2,7 +2,7 @@ from gendiff.formatters.stylish import formatter_stylish
 from gendiff.formatters.plain import formatter_plain
 from gendiff.formatters.json import formatter_json
 from gendiff.parse import parse_file
-
+from gendiff.formatters.stylish import fix
 
 def generate_diff(file1, file2, format='stylish'):
     file1 = parse_file(file1)
@@ -40,12 +40,3 @@ def obrab(file1, file2, i, znak):
         znak.append({'key': i, 'znak': '  '})
     elif fix(file1[i]) != fix(file2[i]):
         znak.append({'key': i, 'znak': '? ', 'old': fix(file1[i]), 'new': fix(file2[i])})  # noqa: E501
-
-
-def fix(file):
-    if isinstance(file, bool):
-        return str(file).lower()
-    elif file is None or file == 0:
-        return "null"
-    else:
-        return str(file)
