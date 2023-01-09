@@ -25,9 +25,9 @@ def izmen(file1, file2, znak):
     for i in allkeys:
         if i in file1.keys() and i in file2.keys():
             obrab(file1, file2, i, znak)
-        elif i not in file1.keys():
+        elif fix(i) not in file1.keys():
             znak.append({'key': i, 'znak': '+ '})
-        elif i not in file2.keys():
+        elif fix(i) not in file2.keys():
             znak.append({'key': i, 'znak': '- '})
     return znak
 
@@ -39,7 +39,7 @@ def obrab(file1, file2, i, znak):
     elif fix(file1[i]) == fix(file2[i]):
         znak.append({'key': i, 'znak': '  '})
     elif fix(file1[i]) != fix(file2[i]):
-        znak.append({'key': i, 'znak': '? ', 'old': file1[i], 'new': file2[i]})  # noqa: E501
+        znak.append({'key': i, 'znak': '? ', 'old': fix(file1[i]), 'new': fix(file2[i])})  # noqa: E501
 
 
 def fix(file):
