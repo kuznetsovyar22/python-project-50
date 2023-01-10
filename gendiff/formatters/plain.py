@@ -34,6 +34,8 @@ def fix(file):
         return str(file).lower()
     elif file is None:
         return "null"
+    elif isinstance(file, int):
+        return file
     else:
         return f'\'{file}\''
 
