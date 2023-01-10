@@ -14,7 +14,7 @@ def main():
     args = parse_args()
     file1 = args.first_file
     file2 = args.second_file
-    generate_diff(file1, file2, args.format)
+    print(generate_diff(file1, file2, args.format))
 
 
 if __name__ == '__main__':
