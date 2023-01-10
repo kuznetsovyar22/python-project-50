@@ -1,4 +1,3 @@
-import json, yaml
 from gendiff.gendiff import generate_diff
 
 
@@ -7,6 +6,7 @@ expectedyml = open("tests/fixtures/expectedyml.txt", "r")
 expectedrec = open("tests/fixtures/expectedrec.txt", "r")
 expectedplain = open("tests/fixtures/expectedplain.txt", "r")
 generate_diff('tests/fixtures/file1.json', 'tests/fixtures/file2.json')
+
 
 def test_generate_diff_json():
     assert generate_diff('tests/fixtures/file1.json', 'tests/fixtures/file2.json') == expected.read()
